@@ -29,3 +29,28 @@
 .cursor{
     cursor: pointer;
 }
+.list-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.list-header input{
+    padding: 8px 12px;
+    border: 1px solid #cacaca;
+    border-radius: 4px;
+    outline-color: tomato;
+    min-width: 220px;
+}
+
+.list-empty{
+    padding: 15px;
+}
+
+.list-table-format .remove{
+    color: tomato;
+    font-weight: 600;
+}

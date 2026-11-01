@@ -6,9 +6,27 @@
 }
 
 .navbar .logo{
-    width: max(10%.80px);
+    width: max(10%,80px);
 }
 
 .navbar .profile{
     width: 40px;
+}
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-right button{
+    padding: 7px 18px;
+    border: 1px solid tomato;
+    border-radius: 20px;
+    background: white;
+    color: #49557e;
+    cursor: pointer;
+}
+
+.navbar-right button:hover{
+    background-color: #fff4f2;
 }

@@ -15,7 +15,7 @@
 }
 
 .add-product-name, .add-product-description{
-  width:max(40%,2280px) ;
+  width: max(40%,280px);
 }
 
 .add-product-name input, .add-product-description textarea{
@@ -39,4 +39,18 @@
     background-color: black;
     color: white;
     cursor: pointer;
+}
+.add-img-upload label{
+    cursor: pointer;
+}
+
+.add-img-upload img{
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.add-btn:disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
 }

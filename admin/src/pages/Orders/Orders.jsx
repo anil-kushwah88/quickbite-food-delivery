@@ -1,76 +1,89 @@
-import React from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import './Orders.css'
-import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { useEffect } from 'react'
 import { assets } from '../../assets/admin_assets/assets'
-import axios from "axios"
+import api, { CURRENCY, getErrorMessage } from '../../api'
 
+const STATUSES = ["Food Processing", "Out for delivery", "Delivered", "Cancelled"]
 
-const Orders = ({url}) => {
+const formatDate = (iso) =>
+  new Date(iso).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" });
 
- const [orders,setOrders] = useState([]);
+const Orders = () => {
 
- const fetchAllOrders = async () => {
-    const response = await axios.get(url+"/api/order/list");
-    if (response.data.success) {
+  const [orders, setOrders] = useState([]);
+  const [filter, setFilter] = useState("All");
+  const [loading, setLoading] = useState(true);
+
+  const fetchAllOrders = useCallback(async () => {
+    try {
+      const response = await api.get("/api/order/list", {
+        params: filter === "All" ? {} : { status: filter },
+      });
       setOrders(response.data.data);
-      console.log(response.data.data);
+    } catch (error) {
+      toast.error(getErrorMessage(error, "Could not load orders"))
+    } finally {
+      setLoading(false)
     }
-    else{
-       toast.error("Error")
-    }
- }
+  }, [filter])
 
-  const statusHandler = async (event,orderId) => {
-        const response = await axios.post(url+"/api/order/status",{
-          orderId,
-          status:event.target.value
-        })
-        if (response.data.success) {
-          await fetchAllOrders();
-        }
-          
+  const statusHandler = async (event, orderId) => {
+    try {
+      await api.post("/api/order/status", { orderId, status: event.target.value })
+      toast.success("Order status updated")
+      await fetchAllOrders();
+    } catch (error) {
+      toast.error(getErrorMessage(error, "Could not update status"))
+    }
   }
 
- useEffect(()=>{
-   fetchAllOrders()
- },[])
+  useEffect(() => {
+    fetchAllOrders()
+  }, [fetchAllOrders])
 
   return (
     <div className='order add'>
-      <h3>Order Page</h3>
+      <div className="order-header">
+        <h3>Order Page</h3>
+        <div className="order-actions">
+          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+            <option value="All">All statuses</option>
+            {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+          </select>
+          <button onClick={fetchAllOrders}>Refresh</button>
+        </div>
+      </div>
       <div className="order-list">
-        {orders.map((order,index)=>(
-          <div key={index} className='order-item'>
+        {loading && <p>Loading orders...</p>}
+        {!loading && orders.length === 0 && <p className="order-empty">No orders found.</p>}
+        {orders.map((order) => (
+          <div key={order._id} className='order-item'>
             <img src={assets.parcel_icon} alt="" />
             <div>
-                    <p className='order-item-food'>
-                   {order.items.map((item,index)=>{
-                      if (index===order.items.length-1) {
-                        return item.name + " x " + item.quantity
-                      }
-                      else{
-                        return item.name + " x " + item.quantity + ", "
-                      }
-                    })}
-            </p>
-            <p className='order-item-name'>{order.address.firstName+" "+order.address.lastName}</p>
-            <div className="order-item-address">
-              <p>{order.address.street+","}</p>
-               <p>{order.address.city+","+order.address.state+","+order.address.country+","+order.address.zipcode}</p>
+              <p className='order-item-food'>
+                {order.items.map((item) => `${item.name} x ${item.quantity}`).join(", ")}
+              </p>
+              <p className='order-item-name'>{order.address.firstName + " " + order.address.lastName}</p>
+              <div className="order-item-address">
+                <p>{order.address.street + ","}</p>
+                <p>{[order.address.city, order.address.state, order.address.country, order.address.zipcode].join(", ")}</p>
+              </div>
+              <p className='order-item-phone'>{order.address.phone}</p>
+              <p className='order-item-meta'>#{order._id.slice(-6).toUpperCase()} · {formatDate(order.createdAt)}</p>
             </div>
-            <p className='order-item-phone'>{order.address.phone}</p>
-             </div>
-             <p>Items : {order.items.length}</p>
-             <p>${order.amount}</p>
-             <select onChange={(event)=>statusHandler(event,order._id)} value={order.status}>
-              <option value="Food Processing">Food Processing</option>
-              <option value="Out for delivery">Out for delivery</option>
-              <option value="Delivered">Delivered</option>
-             </select>
-         </div>
-            ))}
+            <div>
+              <p>Items : {order.items.length}</p>
+              <p className={`order-payment ${order.payment ? "paid" : "pending"}`}>
+                {order.paymentMethod === "cod" ? "COD" : "Stripe"} · {order.payment ? "Paid" : "Pending"}
+              </p>
+            </div>
+            <p><b>{CURRENCY}{Number(order.amount).toFixed(2)}</b></p>
+            <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
+              {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+        ))}
       </div>
     </div>
   )
