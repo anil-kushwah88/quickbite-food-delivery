@@ -1,0 +1,20 @@
+{
+  "name": "tomato-food-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack MERN food delivery app – customer website, admin panel and REST API",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend && npm install --prefix admin",
+    "dev": "concurrently -k -n api,web,admin -c red,green,blue \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\" \"npm run dev --prefix admin\"",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:admin": "npm run dev --prefix admin",
+    "seed": "npm run seed --prefix backend",
+    "build": "npm run build --prefix frontend && npm run build --prefix admin",
+    "lint": "npm run lint --prefix frontend && npm run lint --prefix admin"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "license": "MIT"
+}
