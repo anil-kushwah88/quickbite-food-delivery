@@ -104,3 +104,36 @@
         justify-content: start;
     }
 }
+.cart-empty{
+    margin: 30px 0px;
+    color: #747474;
+}
+
+.cart-empty span{
+    color: tomato;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.cart-qty{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-qty button{
+    width: 26px;
+    height: 26px;
+    border: 1px solid #d6d6d6;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    color: #49557e;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.cart-qty button:hover{
+    border-color: tomato;
+    color: tomato;
+}

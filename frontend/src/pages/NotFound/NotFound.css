@@ -1,0 +1,20 @@
+.not-found{
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #49557e;
+}
+
+.not-found h1{
+    font-size: 80px;
+    color: tomato;
+}
+
+.not-found a{
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+}

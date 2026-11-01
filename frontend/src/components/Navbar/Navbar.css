@@ -52,12 +52,39 @@
 
 .navbar-search-icon .dot{
     position: absolute;
-    min-width: 10px;
-    min-height: 10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
     background-color: tomato;
-    border-radius: 5px;
-    top: -8px;
-    right: -8px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 9px;
+    top: -10px;
+    right: -12px;
+}
+
+.navbar-menu a,
+.navbar-right img{
+    cursor: pointer;
+}
+
+.navbar-search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-search input{
+    width: 180px;
+    padding: 8px 14px;
+    border: 1px solid #d6d6d6;
+    border-radius: 20px;
+    outline-color: tomato;
+    font-size: 14px;
+    animation: fadeIn 0.3s;
 }
 
 .navbar-profile{
@@ -141,5 +168,8 @@
 @media (max-width:750px){
     .navbar-menu{
         display: none;
+    }
+    .navbar-search input{
+        width: 120px;
     }
 }

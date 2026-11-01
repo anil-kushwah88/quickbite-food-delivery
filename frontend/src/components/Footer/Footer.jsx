@@ -7,8 +7,8 @@ const Footer = () => {
     <div className='footer' id='footer'>
         <div className="footer-content">
             <div className="footer-content-left">
-               <img src={assets.logo} alt="" />
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam doloremque esse id incidunt minus illum, mollitia nihil impedit quia officiis perferendis nisi asperiores quo, accusamus, voluptatem neque odio voluptatum tenetur.</p>
+               <img src={assets.logo} alt="Tomato" />
+               <p>Tomato brings your favourite dishes from the best kitchens in town straight to your door. Fresh ingredients, fast delivery and secure payments, every single time.</p>
                <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="" />
                 <img src={assets.twitter_icon} alt="" />
@@ -19,7 +19,7 @@ const Footer = () => {
              <div className="footer-content-center">
                    <h2>COMPANY</h2>
                    <ul>
-                    <li>Home</li>
+                    <li onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</li>
                     <li>About us</li>
                     <li>Delivery</li>
                     <li>Privacy policy</li>
@@ -36,7 +36,7 @@ const Footer = () => {
 
         </div>
          <hr />
-         <p className="footer-copyright">Copyright 2024 © Tomato.com - All Right Reseved. </p>
+         <p className="footer-copyright">Copyright {new Date().getFullYear()} © Tomato.com - All Rights Reserved. </p>
     </div>
 
   )

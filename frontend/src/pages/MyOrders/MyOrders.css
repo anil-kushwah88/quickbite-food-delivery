@@ -49,3 +49,23 @@
         font-size: 10px;
     }
 }
+
+.my-orders-empty{
+    margin-top: 30px;
+    color: #747474;
+}
+
+.my-orders-empty span{
+    color: tomato;
+    cursor: pointer;
+}
+
+.my-orders-order small{
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.my-orders-order .status-delivered span{ color: #2e9e5b; }
+.my-orders-order .status-cancelled span{ color: #999; }

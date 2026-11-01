@@ -17,3 +17,12 @@
         transform: rotate(360deg) ;
     }
 }
+.verify{
+    gap: 20px;
+    align-content: center;
+}
+
+.verify p{
+    place-self: center;
+    color: #747474;
+}

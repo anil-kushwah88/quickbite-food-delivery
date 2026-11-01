@@ -14,3 +14,30 @@
     gap: 30px;
     row-gap: 50px;
 }
+.food-display-status{
+    margin-top: 30px;
+    color: #747474;
+    font-size: 16px;
+}
+
+.food-display-status button{
+    margin-left: 10px;
+    border: 1px solid tomato;
+    background: white;
+    color: tomato;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.food-skeleton{
+    height: 330px;
+    border-radius: 15px;
+    background: linear-gradient(90deg,#f2f2f2 25%,#e8e8e8 50%,#f2f2f2 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+    100%{ background-position: -200% 0; }
+}
