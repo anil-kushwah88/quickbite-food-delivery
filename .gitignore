@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Builds
+dist/
+dist-ssr/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Uploaded images (kept out of git; seed images live in backend/seed/images)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.local
