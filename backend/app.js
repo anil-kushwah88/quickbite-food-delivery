@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import env from "./config/env.js";
+import ApiError from "./utils/ApiError.js";
 import { UPLOAD_DIR } from "./middleware/upload.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
 import foodRouter from "./routes/foodRoute.js";
@@ -20,7 +21,7 @@ app.use(
       // Allow tools like Postman/curl (no origin) and any localhost port in development
       if (!origin || allowedOrigins.has(origin)) return cb(null, true);
       if (env.nodeEnv !== "production" && /^http:\/\/localhost:\d+$/.test(origin)) return cb(null, true);
-      cb(new Error(`CORS blocked for origin ${origin}`));
+      cb(new ApiError(403, `CORS blocked for origin ${origin}`));
     },
   })
 );

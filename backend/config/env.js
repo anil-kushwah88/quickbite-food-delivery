@@ -1,4 +1,9 @@
-import "dotenv/config";
+import path from "path";
+import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+
+// Always load backend/.env, no matter which folder the server is started from
+dotenv.config({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.env"), quiet: true });
 
 const toList = (value) =>
   (value || "")
