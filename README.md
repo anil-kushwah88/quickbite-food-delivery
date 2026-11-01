@@ -1,4 +1,4 @@
-# 🍅 Tomato – Full-Stack Food Delivery App (MERN)
+# 🍔 QuickBite – Full-Stack Food Delivery App (MERN)
 
 A production-style food ordering platform with a **customer website**, an **admin panel** and a **REST API**, built with **MongoDB, Express, React and Node.js**. Customers can browse the menu, search, manage a cart, and check out with **Stripe** or **Cash on Delivery**; admins manage the menu and track orders from a dashboard.
 
@@ -57,7 +57,7 @@ A production-style food ordering platform with a **customer website**, an **admi
 ```
 
 ```
-tomato-food-delivery/
+quickbite-food-delivery/
 ├── backend/            # Express REST API
 │   ├── config/         # env, database, stripe
 │   ├── controllers/    # food, user, cart, order, admin
@@ -83,8 +83,8 @@ tomato-food-delivery/
 
 ### 1. Clone and install
 ```bash
-git clone https://github.com/<your-username>/tomato-food-delivery.git
-cd tomato-food-delivery
+git clone https://github.com/<your-username>/quickbite-food-delivery.git
+cd quickbite-food-delivery
 npm run install:all
 ```
 
@@ -110,7 +110,7 @@ npm run dev
 The demo menu is seeded automatically on first start. Default admin login (change it in `.env`):
 
 ```
-email:    admin@tomato.com
+email:    admin@quickbite.com
 password: admin123
 ```
 

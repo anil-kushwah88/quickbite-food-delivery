@@ -28,7 +28,7 @@ const Login = ({ onLogin }) => {
   return (
     <div className='admin-login'>
       <form onSubmit={onSubmit} className='admin-login-card'>
-        <img src={assets.logo} alt="Tomato" />
+        <img src={assets.logo} alt="QuickBite" />
         <h2>Admin Panel</h2>
         <p>Sign in to manage the menu and orders</p>
         <input name='email' type="email" placeholder='Admin email' value={data.email} onChange={onChange} autoComplete='username' required />

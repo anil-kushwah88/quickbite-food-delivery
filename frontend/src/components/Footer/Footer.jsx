@@ -7,8 +7,8 @@ const Footer = () => {
     <div className='footer' id='footer'>
         <div className="footer-content">
             <div className="footer-content-left">
-               <img src={assets.logo} alt="Tomato" />
-               <p>Tomato brings your favourite dishes from the best kitchens in town straight to your door. Fresh ingredients, fast delivery and secure payments, every single time.</p>
+               <img src={assets.logo} alt="QuickBite" />
+               <p>QuickBite brings your favourite dishes from the best kitchens in town straight to your door. Fresh ingredients, fast delivery and secure payments, every single time.</p>
                <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="" />
                 <img src={assets.twitter_icon} alt="" />
@@ -30,13 +30,13 @@ const Footer = () => {
                      <h2>GET IN TOUCH</h2>
                      <ul>
                         <li>+1-212-456-7890</li>
-                        <li>contact@tomato.com</li>
+                        <li>support@quickbite.com</li>
                      </ul>
             </div>
 
         </div>
          <hr />
-         <p className="footer-copyright">Copyright {new Date().getFullYear()} © Tomato.com - All Rights Reserved. </p>
+         <p className="footer-copyright">Copyright {new Date().getFullYear()} © QuickBite - All Rights Reserved. </p>
     </div>
 
   )

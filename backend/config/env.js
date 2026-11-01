@@ -14,10 +14,10 @@ const toList = (value) =>
 const env = {
   port: Number(process.env.PORT) || 4000,
   nodeEnv: process.env.NODE_ENV || "development",
-  mongoUri: process.env.MONGO_URI || "mongodb://127.0.0.1:27017/tomato",
+  mongoUri: process.env.MONGO_URI || "mongodb://127.0.0.1:27017/quickbite",
   jwtSecret: process.env.JWT_SECRET || "dev_only_secret_change_me",
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || "7d",
-  adminEmail: (process.env.ADMIN_EMAIL || "admin@tomato.com").toLowerCase(),
+  adminEmail: (process.env.ADMIN_EMAIL || "admin@quickbite.com").toLowerCase(),
   adminPassword: process.env.ADMIN_PASSWORD || "admin123",
   frontendUrl: process.env.FRONTEND_URL || "http://localhost:5173",
   adminUrl: process.env.ADMIN_URL || "http://localhost:5174",

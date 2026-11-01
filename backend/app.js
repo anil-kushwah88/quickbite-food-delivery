@@ -30,7 +30,7 @@ app.use(express.json({ limit: "1mb" }));
 // Static food images
 app.use("/images", express.static(UPLOAD_DIR, { maxAge: "7d" }));
 
-app.get("/", (_req, res) => res.send("Tomato API is running 🍅"));
+app.get("/", (_req, res) => res.send("QuickBite API is running"));
 app.get("/api/health", (_req, res) => res.json({ success: true, status: "ok", uptime: process.uptime() }));
 
 app.use("/api/food", foodRouter);

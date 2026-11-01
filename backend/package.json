@@ -1,7 +1,7 @@
 {
-  "name": "tomato-backend",
+  "name": "quickbite-backend",
   "version": "1.0.0",
-  "description": "REST API for the Tomato food delivery app (Express + MongoDB + JWT + Stripe)",
+  "description": "REST API for the QuickBite food delivery app (Express + MongoDB + JWT + Stripe)",
   "main": "server.js",
   "type": "module",
   "scripts": {
